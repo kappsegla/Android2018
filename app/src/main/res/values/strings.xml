@@ -3,4 +3,6 @@
     <string name="sendButton">Send</string>
     <string name="editText">Write something</string>
     <string name="message_recieved">Message recieved:</string>
+    <string name="editButton">Edit</string>
+    <string name="doneButton">Done</string>
 </resources>

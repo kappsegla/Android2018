@@ -1,1 +1,3 @@
 Some text added to textfile in master.
+
+More text added.

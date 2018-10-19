@@ -44,7 +44,6 @@ public class TestActivity extends AppCompatActivity {
         {
             //Restart of activity after configuration change
             int i = savedInstanceState.getInt("currentPic");
-            //imageView.setImageResource(id);
             Drawable drawable = images.get(i);
             imageView.setImageDrawable(drawable);
             imageView.setTag(i);

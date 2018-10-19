@@ -17,7 +17,7 @@ public class TestActivity extends AppCompatActivity {
 
     private final int ID = 1234;
     private TextView v;
-    private ImageView im;
+    private ImageView imageView;
     private SharedPreferences sharedPreferences;
     private List<Drawable> images= new ArrayList<>();
 
@@ -26,8 +26,8 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         v = findViewById(R.id.textView3);
-        im = findViewById(R.id.imageView);
-        im.setTag(0);
+        imageView = findViewById(R.id.imageView);
+        imageView.setTag(0);
 
         //Preload images
         images.add(getResources().getDrawable(R.drawable.pic1, getTheme()));
@@ -44,16 +44,16 @@ public class TestActivity extends AppCompatActivity {
         {
             //Restart of activity after configuration change
             int i = savedInstanceState.getInt("currentPic");
-            //im.setImageResource(id);
+            //imageView.setImageResource(id);
             Drawable drawable = images.get(i);
-            im.setImageDrawable(drawable);
-            im.setTag(i);
+            imageView.setImageDrawable(drawable);
+            imageView.setTag(i);
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt("currentPic", (Integer)im.getTag());
+        outState.putInt("currentPic", (Integer) imageView.getTag());
         super.onSaveInstanceState(outState);
 
     }
@@ -73,14 +73,14 @@ public class TestActivity extends AppCompatActivity {
 //        Intent i = new Intent(this, EditActivity.class);
 //        i.putExtra("TEXT", text);
 //        startActivityForResult(i, ID);
-        if( ((Integer)im.getTag()) == 1) {
-            im.setImageDrawable(images.get(0));
-            im.setTag(0);
+        if( ((Integer) imageView.getTag()) == 1) {
+            imageView.setImageDrawable(images.get(0));
+            imageView.setTag(0);
         }
         else
         {
-            im.setImageDrawable(images.get(1));
-            im.setTag(1);
+            imageView.setImageDrawable(images.get(1));
+            imageView.setTag(1);
         }
     }
 

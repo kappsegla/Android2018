@@ -63,24 +63,14 @@ public class TestActivity extends AppCompatActivity {
         //Save a key-value pair
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("TextKey", v.getText().toString());
-        editor.remove("TextKey");
         editor.commit();
     }
 
     public void editButtonClicked(View view) {
-//        String text = v.getText().toString();
-//        Intent i = new Intent(this, EditActivity.class);
-//        i.putExtra("TEXT", text);
-//        startActivityForResult(i, ID);
-        if( ((Integer) imageView.getTag()) == 1) {
-            imageView.setImageDrawable(images.get(0));
-            imageView.setTag(0);
-        }
-        else
-        {
-            imageView.setImageDrawable(images.get(1));
-            imageView.setTag(1);
-        }
+        String text = v.getText().toString();
+        Intent i = new Intent(this, EditActivity.class);
+        i.putExtra("TEXT", text);
+        startActivityForResult(i, ID);
     }
 
     @Override
@@ -89,10 +79,18 @@ public class TestActivity extends AppCompatActivity {
         if (requestCode == ID && data != null) {
             String answer = data.getStringExtra("ANSWER");
             v.setText(answer);
-//            //Save a key-value pair
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString("TextKey", answer);
-//            editor.commit();
+        }
+    }
+
+    public void imageViewClicked(View view) {
+        if( ((Integer) imageView.getTag()) == 1) {
+            imageView.setImageDrawable(images.get(0));
+            imageView.setTag(0);
+        }
+        else
+        {
+            imageView.setImageDrawable(images.get(1));
+            imageView.setTag(1);
         }
     }
 }

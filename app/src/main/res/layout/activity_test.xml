@@ -35,5 +35,6 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/pic1" />
+        app:srcCompat="@drawable/pic1"
+        android:onClick="imageViewClicked"/>
 </android.support.constraint.ConstraintLayout>

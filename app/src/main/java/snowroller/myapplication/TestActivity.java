@@ -2,16 +2,18 @@ package snowroller.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -19,7 +21,9 @@ public class TestActivity extends AppCompatActivity {
     private TextView v;
     private ImageView imageView;
     private SharedPreferences sharedPreferences;
-    private List<Drawable> images= new ArrayList<>();
+    //private List<Drawable> images= new ArrayList<>();
+    private TypedArray pictures;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +33,16 @@ public class TestActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView.setTag(0);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+
+        Log.i("TestActivity","onCreate is running, everything looks good");
+
         //Preload images
-        images.add(getResources().getDrawable(R.drawable.pic1, getTheme()));
-        images.add(getResources().getDrawable(R.drawable.pic2, getTheme()));
+        //images.add(getResources().getDrawable(R.drawable.pic1, getTheme()));
+        //images.add(getResources().getDrawable(R.drawable.pic2, getTheme()));
+        Resources res = getResources();
+        pictures = res.obtainTypedArray(R.array.pictures);
 
         sharedPreferences =
                 getSharedPreferences("default", MODE_PRIVATE);
@@ -44,7 +55,7 @@ public class TestActivity extends AppCompatActivity {
         {
             //Restart of activity after configuration change
             int i = savedInstanceState.getInt("currentPic");
-            Drawable drawable = images.get(i);
+            Drawable drawable = pictures.getDrawable(i);
             imageView.setImageDrawable(drawable);
             imageView.setTag(i);
         }
@@ -84,12 +95,12 @@ public class TestActivity extends AppCompatActivity {
 
     public void imageViewClicked(View view) {
         if( ((Integer) imageView.getTag()) == 1) {
-            imageView.setImageDrawable(images.get(0));
+            imageView.setImageDrawable(pictures.getDrawable(0));
             imageView.setTag(0);
         }
         else
         {
-            imageView.setImageDrawable(images.get(1));
+            imageView.setImageDrawable(pictures.getDrawable(1));
             imageView.setTag(1);
         }
     }

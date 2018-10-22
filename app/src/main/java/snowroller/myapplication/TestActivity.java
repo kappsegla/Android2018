@@ -1,5 +1,6 @@
 package snowroller.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -7,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -66,6 +68,27 @@ public class TestActivity extends AppCompatActivity {
         outState.putInt("currentPic", (Integer) imageView.getTag());
         super.onSaveInstanceState(outState);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(TestActivity.this);
+                dialog.setMessage("Vill du avsluta?")
+                        .setTitle("Avsluta?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+             dialog.create().show();
     }
 
     @Override

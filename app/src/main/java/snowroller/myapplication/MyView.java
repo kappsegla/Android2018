@@ -79,8 +79,8 @@ public class MyView extends View implements View.OnTouchListener {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int h = canvas.getHeight();
-        int w = canvas.getWidth();
+        int h = getHeight();
+        int w = getWidth();
 
         if( active )
             updateSnake();
@@ -94,7 +94,7 @@ public class MyView extends View implements View.OnTouchListener {
         canvas.drawText("Segments: " + length, 40.0f,40.0f,textPaint );
 
         if( active )
-            postDelayed(()->this.invalidate(),250);
+            postDelayed(this::invalidate,250);
     }
 
     private void updateSnake() {

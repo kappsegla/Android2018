@@ -1,9 +1,11 @@
-package snowroller.myapplication;
+package snowroller.myapplication.note;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import snowroller.myapplication.R;
 
 public class SecondActivity extends AppCompatActivity {
 

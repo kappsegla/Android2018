@@ -1,4 +1,4 @@
-package snowroller.myapplication;
+package snowroller.myapplication.note;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import snowroller.myapplication.R;
 import snowroller.myapplication.model.Note;
 import snowroller.myapplication.model.NotesHandler;
 

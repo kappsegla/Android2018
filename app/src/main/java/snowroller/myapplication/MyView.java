@@ -181,6 +181,7 @@ public class MyView extends View implements View.OnTouchListener {
             return;
 
         String[] arr = snakeData.split(",");
+
         snake.clear();
 
         for (int i = 0; i < arr.length; ) {

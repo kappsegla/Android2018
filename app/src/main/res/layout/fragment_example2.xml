@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment 2 Example" />
+        android:text="Fragment 2 Example\n\nPress backnavigation to go back to previous fragment"
+        tools:background="@android:color/background_light" />
 
 </FrameLayout>

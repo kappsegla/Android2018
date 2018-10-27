@@ -2,5 +2,9 @@
     <string name="app_name">My Application</string>
     <string name="sendButton">Send</string>
     <string name="editText">Write something</string>
-    <string name="message_recieved">Message recieved:</string>
+    <string name="message_received">Message received:</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

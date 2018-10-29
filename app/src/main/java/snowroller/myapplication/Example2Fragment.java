@@ -31,7 +31,7 @@ public class Example2Fragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //menu.clear();
+        menu.clear();
         inflater.inflate(R.menu.frag2menu, menu);
     }
 

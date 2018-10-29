@@ -28,7 +28,6 @@ public class ExampleFragment extends Fragment {
 
     public ExampleFragment() {
         // Required empty public constructor
-        //model = ExampleFragmentModel.getInstance();
     }
 
 

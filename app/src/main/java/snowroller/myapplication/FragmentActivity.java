@@ -21,6 +21,7 @@ public class FragmentActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.framelayout,exampleFragment);
 
         fragmentTransaction.commit();
+
     }
 
     @Override

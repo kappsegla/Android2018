@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
         getActivity().findViewById(R.id.play_button).setOnClickListener(this::playButtonClicked);
-        getActivity().findViewById(R.id.play_button).setOnClickListener(this::aboutButtonClicked);
+        getActivity().findViewById(R.id.about_button).setOnClickListener(this::aboutButtonClicked);
     }
 
     private void aboutButtonClicked(View view) {
@@ -79,6 +79,11 @@ public class MenuFragment extends Fragment {
     }
 
     private void showAbout() {
-        //TODO:Start about fragment
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AboutFragment aboutFragment = new AboutFragment();
+        fragmentTransaction.replace(R.id.framelayout, aboutFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

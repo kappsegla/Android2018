@@ -2,25 +2,42 @@ package snowroller.myapplication.hangman.viewmodels;
 
 import android.arch.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HangmanViewModel extends ViewModel {
 
-    private String text;
+    private String secretWord;
+    private int wrongGuessCount;
+    private List<Character> guesses = new ArrayList<>();
 
-    public String getText() {
-        return text;
+    public HangmanViewModel() {
+        secretWord = "apple";
     }
 
-    public void setText(String text) {
-        this.text = text;
+
+    public String getWrongGuessCountAsString() {
+        return Integer.toString(wrongGuessCount);
     }
 
-    private int guessCount;
-
-    public String getGuessCount() {
-        return Integer.toString(guessCount);
+    public int getWrongGuessCount() {
+        return wrongGuessCount;
     }
 
-    public void setGuessCount(int guessCount) {
-        this.guessCount = guessCount;
+    //Returns true if guess is a character within the word
+    public boolean makeGuess(char c) {
+        return false;
     }
+
+    public String getMaskedWord() {
+        StringBuilder builder = new StringBuilder();
+        for (char c : secretWord.toCharArray()) {
+            if (guesses.contains(c))
+                builder.append(c);
+            else
+                builder.append(" _ ");
+        }
+        return builder.toString();
+    }
+
 }

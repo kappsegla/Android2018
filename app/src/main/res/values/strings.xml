@@ -2,4 +2,6 @@
     <string name="app_name">Hangman</string>
     <string name="play_game">Play</string>
     <string name="about">About</string>
+    <string name="about_info">Hangman game, copyright 2018 Martin Blomberg</string>
+    <string name="guess_button">Guess</string>
 </resources>

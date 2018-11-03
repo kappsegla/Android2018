@@ -1,4 +1,4 @@
-package snowroller.myapplication;
+package snowroller.myapplication.hangman.fragments;
 
 
 import android.arch.lifecycle.ViewModelProviders;
@@ -14,19 +14,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import snowroller.myapplication.hangman.viewmodels.HangmanViewModel;
+import snowroller.myapplication.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ExampleFragment extends Fragment {
+public class MenuFragment extends Fragment {
 
 
   //  ExampleFragmentModel model;
-    ExampleFragmentViewModel model;
+    HangmanViewModel model;
 
     TextView textView;
 
-    public ExampleFragment() {
+    public MenuFragment() {
         // Required empty public constructor
     }
 
@@ -42,7 +45,7 @@ public class ExampleFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        model = ViewModelProviders.of(this).get(ExampleFragmentViewModel.class);
+        model = ViewModelProviders.of(this).get(HangmanViewModel.class);
         getActivity().findViewById(R.id.button2).setOnClickListener(this::buttonClicked);
         textView = getActivity().findViewById(R.id.textView3);
         textView.setText(model.getGuessCount());
@@ -56,9 +59,9 @@ public class ExampleFragment extends Fragment {
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        Example2Fragment example2Fragment = new Example2Fragment();
+        GameFragment gameFragment = new GameFragment();
 
-        fragmentTransaction.replace(R.id.framelayout, example2Fragment);
+        fragmentTransaction.replace(R.id.framelayout, gameFragment);
 
         fragmentTransaction.addToBackStack(null);
 
@@ -68,6 +71,6 @@ public class ExampleFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.frag1menu, menu);
+        inflater.inflate(R.menu.startmenu, menu);
     }
 }

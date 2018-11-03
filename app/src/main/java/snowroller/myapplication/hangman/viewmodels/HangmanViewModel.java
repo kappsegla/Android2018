@@ -1,8 +1,8 @@
-package snowroller.myapplication;
+package snowroller.myapplication.hangman.viewmodels;
 
 import android.arch.lifecycle.ViewModel;
 
-public class ExampleFragmentViewModel extends ViewModel {
+public class HangmanViewModel extends ViewModel {
 
     private String text;
 

@@ -1,4 +1,4 @@
-package snowroller.myapplication;
+package snowroller.myapplication.hangman.fragments;
 
 
 import android.os.Bundle;
@@ -9,14 +9,16 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import snowroller.myapplication.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Example2Fragment extends Fragment {
+public class GameFragment extends Fragment {
 
 
-    public Example2Fragment() {
+    public GameFragment() {
         // Required empty public constructor
     }
 
@@ -32,7 +34,7 @@ public class Example2Fragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.frag2menu, menu);
+        inflater.inflate(R.menu.gamemenu, menu);
     }
 
 }

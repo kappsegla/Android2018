@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Hänga gubbe</string>
+    <string name="play_game">Spela</string>
+    <string name="about">Om</string>
 </resources>

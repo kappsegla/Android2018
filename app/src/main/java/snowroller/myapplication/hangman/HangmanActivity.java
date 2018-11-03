@@ -13,7 +13,10 @@ public class HangmanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
+        setContentView(R.layout.activity_layout);
+
+        //Use toolbar instead of actionBar
+        setSupportActionBar(findViewById(R.id.toolbar));
 
         MenuFragment menuFragment = new MenuFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -24,7 +27,7 @@ public class HangmanActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0 )
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0)
             getSupportFragmentManager().popBackStack();
         else
             finish();

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Hangman</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="play_game">Play</string>
+    <string name="about">About</string>
 </resources>

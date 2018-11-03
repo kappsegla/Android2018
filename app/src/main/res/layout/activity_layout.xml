@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".hangman.HangmanActivity"
     tools:layout_editor_absoluteY="81dp">
-
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</android.support.v7.widget.Toolbar>
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="0dp"
@@ -15,6 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

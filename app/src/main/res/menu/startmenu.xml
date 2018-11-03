@@ -2,9 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:icon="@drawable/attach_icon"
-        android:title="Item1Frag1"
-        app:showAsAction="always" />
+        android:id="@+id/play_menu_item"
+        android:icon="@drawable/play_icon"
+        app:showAsAction="always"
+        android:title="@string/play_game"/>
     <item
-        android:title="Item2Frag1" />
+        android:id="@+id/about_menu_item"
+        android:icon="@drawable/info_icon"
+        app:showAsAction="always"
+        android:title="@string/about"/>
 </menu>

@@ -65,10 +65,13 @@ public class GameFragment extends Fragment {
 
     private void guessButtonClicked(View view) {
         //Validate input
-
-        //Send to model
-
+        String g = guess.getText().toString();
+        //Try the char
+        if (g.length() == 1) {
+            model.makeGuess(g.charAt(0));
+        }
         //Update view
+        guess.setText("");
         maskedText.setText(model.getMaskedWord());
         setHangMan(model.getWrongGuessCount());
     }

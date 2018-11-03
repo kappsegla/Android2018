@@ -26,7 +26,24 @@ public class HangmanViewModel extends ViewModel {
 
     //Returns true if guess is a character within the word
     public boolean makeGuess(char c) {
-        return false;
+        if( secretWord.indexOf(c) == -1)
+        {
+            //Ej en bokstav i ordet, kolla så vi inte gissat på den innan.
+            for (char ch : guesses) {
+                if( ch == c)
+                {
+                    //Old stuff
+                    return false;
+                }
+            }
+            wrongGuessCount++;
+            guesses.add(c);
+            return false;
+        }
+        else {
+            guesses.add(c);
+            return true;
+        }
     }
 
     public String getMaskedWord() {

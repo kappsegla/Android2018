@@ -1,6 +1,9 @@
 package snowroller.myapplication.hangman.fragments;
 
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +36,8 @@ public class AboutFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
+        getActivity().getWindow().setBackgroundDrawable(transparentDrawable);
     }
 
     @Override

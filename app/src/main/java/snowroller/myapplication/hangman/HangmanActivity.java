@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import snowroller.myapplication.R;
 import snowroller.myapplication.hangman.fragments.MenuFragment;
@@ -16,7 +17,9 @@ public class HangmanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_layout);
 
         //Use toolbar instead of actionBar
-        setSupportActionBar(findViewById(R.id.toolbar));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setBackgroundResource(R.color.colorPrimary);
 
         MenuFragment menuFragment = new MenuFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();

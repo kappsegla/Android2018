@@ -3,4 +3,10 @@
     <string name="app_name">Hänga gubbe</string>
     <string name="play_game">Spela</string>
     <string name="about">Om</string>
+    <string name="about_info">Hänga gubbe spel. Skrivet 2018 av Martin Blomberg</string>
+    <string name="guess_button">Gissa</string>
+    <plurals name="guessesLeft">
+        <item quantity="one">%d försök kvar.</item>
+        <item quantity="other">%d försök kvar.</item>
+    </plurals>
 </resources>

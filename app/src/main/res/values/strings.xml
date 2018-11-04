@@ -4,4 +4,8 @@
     <string name="about">About</string>
     <string name="about_info">Hangman game, copyright 2018 Martin Blomberg</string>
     <string name="guess_button">Guess</string>
+    <plurals name="guessesLeft">
+        <item quantity="one">%d try left.</item>
+        <item quantity="other">%d tries left.</item>
+    </plurals>
 </resources>

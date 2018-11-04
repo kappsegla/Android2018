@@ -1,7 +1,9 @@
 package snowroller.myapplication.hangman.fragments;
 
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -35,6 +37,8 @@ public class GameFragment extends Fragment {
     Bitmap hangman;
     EditText guess;
     TextView maskedText;
+    TextView guessedChars;
+    TextView guessCount;
 
 
     public GameFragment() {
@@ -46,7 +50,6 @@ public class GameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.gamefragment_layout, container, false);
     }
 
@@ -60,20 +63,49 @@ public class GameFragment extends Fragment {
         hangmanImageView = getActivity().findViewById(R.id.imageView);
         guess = getActivity().findViewById(R.id.guessText);
         maskedText = getActivity().findViewById(R.id.maskedText);
+        guessedChars = getActivity().findViewById(R.id.guessedChars);
+        guessCount = getActivity().findViewById(R.id.triesLeft);
         setHangMan(model.getWrongGuessCount());
+        getActivity().getWindow().setBackgroundDrawableResource(R.drawable.background);
+        updateView();
     }
 
     private void guessButtonClicked(View view) {
         //Validate input
         String g = guess.getText().toString();
-        //Try the char
-        if (g.length() == 1) {
+        if (model.validate(g) && !model.alreadyUsed(g.charAt(0))) {
             model.makeGuess(g.charAt(0));
         }
-        //Update view
-        guess.setText("");
-        maskedText.setText(model.getMaskedWord());
-        setHangMan(model.getWrongGuessCount());
+        updateView();
+        if (model.getGuessesLeft() == 0) {
+            //Lost
+            new AlertDialog.Builder(getContext())
+                    .setTitle("You Lost")
+                    .setCancelable(false)
+                    .setMessage("No more tries left. You didn't find the hidden word, " + model.getSecretWord())
+                    .setIcon(R.drawable.ic_launcher_foreground)
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        model.init();
+                        updateView();
+                    })
+                    .show();
+
+        }
+        if (model.allCleared()) {
+            //Won
+            new AlertDialog.Builder(getContext())
+                    .setTitle("You Won")
+                    .setCancelable(false)
+                    .setMessage("You found the hidden word, " + model.getSecretWord())
+                    .setIcon(R.drawable.ic_launcher_foreground)
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        model.init();
+                        updateView();
+                    })
+                    .show();
+
+        }
+
     }
 
     @Override
@@ -104,10 +136,22 @@ public class GameFragment extends Fragment {
     }
 
     private void setHangMan(int frame) {
-        int col_width = hangman.getWidth() / 7;
+            int col_width = hangman.getWidth() / 8;
 
-        Drawable subImage = new BitmapDrawable(getActivity().getResources(),
-                Bitmap.createBitmap(hangman, frame * col_width, 0, col_width, hangman.getHeight()));
-        hangmanImageView.setImageDrawable(subImage);
+            Drawable subImage = new BitmapDrawable(getActivity().getResources(),
+                    Bitmap.createBitmap(hangman, frame * col_width, 0, col_width, hangman.getHeight()));
+            hangmanImageView.setImageDrawable(subImage);
+    }
+
+    private void updateView() {
+        guess.setText("");
+        maskedText.setText(model.getMaskedWord());
+        guessedChars.setText(model.getGuessedChars());
+
+        int count = model.getGuessesLeft();
+        Resources res = getActivity().getResources();
+        String guessesLeft = res.getQuantityString(R.plurals.guessesLeft, count, count);
+        guessCount.setText(guessesLeft);
+        setHangMan(model.getWrongGuessCount());
     }
 }

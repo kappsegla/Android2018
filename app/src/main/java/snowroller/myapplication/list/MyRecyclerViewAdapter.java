@@ -43,12 +43,23 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<ListItemViewHold
     }
 
     public void removeItem(int index){
-        if( index > 0 && index < list.size()) {
+        if( index >= 0 && index < list.size()) {
             list.remove(index);
             this.notifyItemRemoved(index);
         }
     }
 
 
+    public void removeItem(String id) {
+        for (int i = 0; i < list.size(); i++) {
+            if( list.get(i).id.equals(id) ) {
+                removeItem(i);
+                return;
+            }
+        }
+    }
 
+    public ItemInfo getItem(int adapterPosition) {
+        return list.get(adapterPosition);
+    }
 }
